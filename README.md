@@ -3,7 +3,7 @@
 ![mancala image](http://cs.sjsu.edu/~kim/cs151/contents/project/mancala.jpg)
 
 
-##Rules:
+##Game Rules:
 1. Set-up 
   * The board consists of two rows of pits, each.
   * Three pieces of stones are placed in each of the 12 holes.
