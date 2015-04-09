@@ -5,7 +5,7 @@ public class Pit
 
 	public Pit()
 	{
-
+		
 	}
 
 	public void incStone()

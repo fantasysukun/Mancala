@@ -2,7 +2,7 @@ public class Mancala
 {
 	public static final int P1 = 1;
 	public static final int P2 = 2;
-	
+
 	private Pit[] pits; // circular array
 	private int turn; // P1 when it's p1's turn, P2 otherwise. See contants P1 & P2 - 1, 2 respectively
 	private static final int NUM_PITS = 13;
@@ -20,6 +20,7 @@ public class Mancala
 		// print out (i.e: "P1 selects pitNum"), do the logic, calls print(),
 		// and return true.
 		// otherwise return false.
+		// Either way print out (i.e: "P1's turn now")
 	}
 
 	public int whoseTurn()
