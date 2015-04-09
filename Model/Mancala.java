@@ -67,6 +67,6 @@ public class Mancala
 	 */
 	private void moveStone(int pitNum)
 	{
-
+		// set whose turn next
 	}
 }
