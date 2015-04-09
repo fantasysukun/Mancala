@@ -6,6 +6,7 @@
 ##Rules:
 
 1. Set-up
+⋅⋅* Unordered sub-list. 
 ..* The board consists of two rows of pits, each.
 ..* Three pieces of stones are placed in each of the 12 holes.
 ..* Each player has a large store called Mancala to the left side (P1) and right side (P2) of the board.
