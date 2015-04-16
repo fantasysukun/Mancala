@@ -10,13 +10,11 @@ public class MancalaPanel extends JPanel
 	private final static int MANCALA_A = 1;
 	private final static int MANCALA_B = 2;
 
-	private final static int DEFAULT_X = 0;
-	private final static int DEFAULT_Y = 0;
-	private final static int DEFAULT_WIDTH = 60;
-	private final static int DEFAULT_HEIGHT = 100;
+	private final static int DEFAULT_MANCALA_WIDTH = 60;
+	private final static int DEFAULT_MANCALA_HEIGHT = 100;
 
-	private final static int DEFAULT_PANEL_WIDTH = 80;
-	private final static int DEFAULT_PANEL_HEIGHT = 100;
+	private final static int DEFAULT_PANEL_WIDTH = 120;
+	private final static int DEFAULT_PANEL_HEIGHT = 180;
 
 	private final static int STARTING_STONES_NUMBER = 0;
 	private final static int DEFAULT_STONE_X = 0;
@@ -33,10 +31,7 @@ public class MancalaPanel extends JPanel
 		mancalaAStones = MancalaPanel.STARTING_STONES_NUMBER;
 		mancalaBStones = MancalaPanel.STARTING_STONES_NUMBER;
 		
-		setPreferredSize(new Dimension(
-			MancalaPanel.DEFAULT_WIDTH + 10, 
-			MancalaPanel.DEFAULT_HEIGHT + 10
-		));
+		setPreferredSize(new Dimension(width, height));
 	}
 
 	public void paintComponent(Graphics g)
@@ -81,11 +76,14 @@ public class MancalaPanel extends JPanel
 			return;
 		}
 
+		int x_centered = getWidth()/2 - MancalaPanel.DEFAULT_MANCALA_WIDTH/2;
+		int y_centered = getHeight()/2 - MancalaPanel.DEFAULT_MANCALA_HEIGHT/2;
+
 		Rectangle body = new Rectangle(
-			MancalaPanel.DEFAULT_X, 
-			MancalaPanel.DEFAULT_Y, 
-			MancalaPanel.DEFAULT_WIDTH, 
-			MancalaPanel.DEFAULT_HEIGHT
+			x_centered, 
+			y_centered, 
+			MancalaPanel.DEFAULT_MANCALA_WIDTH, 
+			MancalaPanel.DEFAULT_MANCALA_HEIGHT
 		);
 
 		g2.draw(body);
@@ -96,8 +94,8 @@ public class MancalaPanel extends JPanel
 		{
 			//create Pit inside the Rectangle, MAX Pit will be 36.
 			Ellipse2D.Double circle = new Ellipse2D.Double (
-				MancalaPanel.DEFAULT_X + Xcircle, 
-				MancalaPanel.DEFAULT_Y + Ycircle, 
+				x_centered + Xcircle, 
+				y_centered+ Ycircle, 
 				MancalaPanel.DEFAULT_STONE_SIZE, 
 				MancalaPanel.DEFAULT_STONE_SIZE
 			); 
@@ -106,9 +104,9 @@ public class MancalaPanel extends JPanel
 
 			Xcircle += MancalaPanel.DEFAULT_STONE_SIZE;
 
-			if(Xcircle == MancalaPanel.DEFAULT_WIDTH)
+			if(Xcircle == MancalaPanel.DEFAULT_MANCALA_WIDTH)
 			{
-				Xcircle = MancalaPanel.DEFAULT_X;
+				Xcircle = x_centered;
 				Ycircle += MancalaPanel.DEFAULT_STONE_SIZE;
 			}
 		}

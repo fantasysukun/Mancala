@@ -11,11 +11,8 @@ public class Pit extends JComponent
 	private int stones;
 	private int id;
 	private ChangeListener model;
-	private static final int DEFAULT_X = 0;
-	private static final int DEFAULT_Y = 0;
 	private static final int DEFAULT_WIDTH = 50;
 	private static final int DEFAULT_HEIGHT = 50;
-	private static final int DEFAULT_MARGIN = 5;
 	
 	private static final int DEFAULT_STONES_NUM = 3;
 	private final static int DEFAULT_STONE_X = 0;
@@ -25,7 +22,6 @@ public class Pit extends JComponent
 	public Pit(int id)
 	{	
 		stones = DEFAULT_STONES_NUM;
-		this.id = id;
 	}
 
 	public void attach(ChangeListener model)
@@ -42,16 +38,19 @@ public class Pit extends JComponent
 	{
 		Graphics2D g2 = (Graphics2D) g;
 
+		int x_centered = getWidth()/2 - Pit.DEFAULT_WIDTH/2;
+		int y_centered = getHeight()/2 - Pit.DEFAULT_HEIGHT/2;
+
 		Rectangle body = new Rectangle(
-			Pit.DEFAULT_X, 
-			Pit.DEFAULT_Y, 
+			x_centered,
+			y_centered,
 			Pit.DEFAULT_WIDTH, 
 			Pit.DEFAULT_HEIGHT
 		);
 
 		setPreferredSize(new Dimension(
-			Pit.DEFAULT_WIDTH + Pit.DEFAULT_MARGIN, 
-			Pit.DEFAULT_HEIGHT + Pit.DEFAULT_MARGIN
+			Pit.DEFAULT_WIDTH, 
+			Pit.DEFAULT_HEIGHT
 		));
 
 		g2.draw(body);
@@ -63,8 +62,8 @@ public class Pit extends JComponent
 		{
 			//create Pit inside the Rectangle, MAX Pit will be 36.
 			Ellipse2D.Double circle = new Ellipse2D.Double ( 
-				Pit.DEFAULT_X + Xcircle, 
-				Pit.DEFAULT_Y + Ycircle, 
+				x_centered + Xcircle, 
+				y_centered + Ycircle, 
 				Pit.DEFAULT_STONE_SIZE, 
 				Pit.DEFAULT_STONE_SIZE
 			); 
@@ -75,7 +74,7 @@ public class Pit extends JComponent
 
 			if(Xcircle == Pit.DEFAULT_WIDTH)
 			{
-				Xcircle = Pit.DEFAULT_X;
+				Xcircle = x_centered;
 				Ycircle += Pit.DEFAULT_STONE_SIZE;
 			}
 		}

@@ -19,8 +19,10 @@ public class PitPanel extends JPanel implements ChangeListener
 
 	public PitPanel() 
 	{	
-		setLayout(new GridLayout(PitPanel.DEFAULT_ROWS_NUMBER, 
-			PitPanel.DEFAULT_COLS_NUMBER));
+		setLayout(new GridLayout(
+			PitPanel.DEFAULT_ROWS_NUMBER, 
+			PitPanel.DEFAULT_COLS_NUMBER
+		));
 
 		addMouseListener(new MouseAdapter() 
 		{	
