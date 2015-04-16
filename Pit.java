@@ -22,6 +22,8 @@ public class Pit extends JComponent
 	public Pit(int id)
 	{	
 		stones = DEFAULT_STONES_NUM;
+		this.id = id;
+		setBorder(BorderFactory.createLineBorder(Color.black));
 	}
 
 	public void attach(ChangeListener model)
@@ -78,11 +80,37 @@ public class Pit extends JComponent
 				Ycircle += Pit.DEFAULT_STONE_SIZE;
 			}
 		}
+
+		g2.drawString(String.valueOf(id), 10, 30);
+		contains(0, 0);
 	}
 
 	public boolean contains(int x, int y)
 	{
+		// int x0;
+		// int y0;
+
+		// if(id > PitPanel.LAST_LOWER_PIT)
+		// {
+		// 	x0 = PitPanel.LAST_LOWER_PIT - (id % PitPanel.DEFAULT_COLS_NUMBER) + 
+		// 		 getWidth()/2 - Pit.DEFAULT_WIDTH/2.
+		// }
+		// else
+		// {
+
+		// }
+		//  = id*getWidth() + getWidth()/2 - Pit.DEFAULT_WIDTH/2;
+
+		// System.out.println(id + ": " + x0_component);
+		// System.out.println("pit width: " + getWidth());
+
 		return true;
+		// int y0_component = getHeight()/2 - Pit.DEFAULT_HEIGHT/2;
+
+		// return x >= x0_component &&
+		// 	   x <= x0_component + Pit.DEFAULT_WIDTH &&
+		// 	   y >= y0_component &&
+		// 	   y <= y0_component + Pit.DEFAULT_HEIGHT;
 	}
 
 	public void setStones(int s) 

@@ -10,8 +10,6 @@ public class BoardFrame extends JFrame implements ChangeListener
 	private MancalaPanel mancalaB;
 	private PitPanel pitController; 
 
-	private final static int DEFAULT_LOCATION_X = 150;
-	private final static int DEFAULT_LOCATION_Y = 250;
 	private final static int DEFAULT_WIDTH = 1000;
 	private final static int DEFAULT_HEIGHT = 200;
 	
@@ -20,9 +18,14 @@ public class BoardFrame extends JFrame implements ChangeListener
 	{
 		this.board = board;
 		setLayout(new BorderLayout());
+
+		Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
+		int x_centered = (int) screenSize.getWidth()/2 - BoardFrame.DEFAULT_WIDTH/2;
+		int y_centered = (int) screenSize.getHeight()/2 - BoardFrame.DEFAULT_HEIGHT/2;
+
 		setBounds(
-			BoardFrame.DEFAULT_LOCATION_X, 
-		  	BoardFrame.DEFAULT_LOCATION_Y, 
+			x_centered, 
+		  	y_centered, 
 		  	BoardFrame.DEFAULT_WIDTH, 
 		  	BoardFrame.DEFAULT_HEIGHT
 	    );
