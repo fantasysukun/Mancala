@@ -4,14 +4,12 @@ import javax.swing.event.*;
 import java.util.List;
 
 //serves as model
-public class Board
+public class Board implements ChangeListener
 {
-	
 	private Player playerA;
 	private Player playerB;
 	private Mancala aMancala;
 	private Mancala bMancala;
-	
 	private Pit[] pits; // 0-5 is A's pits, 6-11 is B's pits
 	private List<ChangeListener> observers;
 	
@@ -21,28 +19,16 @@ public class Board
 		playerB = new Player();
 	}
 
-	/**
-	 * Adds a change listener to the Model. 
-	 * @param observer the change listener to add 
-	 */
 	public void attach(ChangeListener observer)
 	{
 		observers.add(observer);
 	}
 
-	//Model class only passing data
-	/*
 	public void stateChanged(ChangeEvent controller)
 	{
 		
 	}
-	*/
 
-	/**
-	 * setup the update method for Pit
-	 * then Pit can use this method pass through data from Views to Model
-	 * @param clickedPit
-	 */
 	public void update(Pit clickedPit)
 	{
 		//look for the pit which is clicked
